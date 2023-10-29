@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHARK App</title>
+    <style>
+        /* 스타일은 이전과 동일 */
+    </style>
+</head>
+<body>
+    <!-- 로그인 페이지 -->
+    <div class="container" id="loginPage">
+        <div class="left-panel">
+            <h2>SHARK</h2>
+            <input type="text" id="username" placeholder="ID">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">로그인</button>
+        </div>
+        <div class="right-panel"></div>
+    </div>
+
+    <!-- 메시지 페이지 -->
+    <div class="container" id="messagePage" style="display:none">
+        <div class="left-panel">
+            <h2 id="sharkText">SHARK</h2>
+            <textarea id="inputText" cols="30" rows="10"></textarea>
+            <button onclick="showMessage()">출력</button>
+        </div>
+        <div class="right-panel">
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // 여기에서 로그인을 확인하고 성공하면 페이지 전환
+            if (username && password) {
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('messagePage').style.display = 'flex';
+            }
+        }
+
+        function showMessage() {
+            var inputText = document.getElementById('inputText').value;
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = inputText;
+        }
+    </script>
+</body>
+</html>
+
+<script>
+    function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // 여기에서 로그인을 확인하고 성공하면 페이지 전환
+        if (username && password) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('messagePage').style.display = 'flex';
+            document.getElementById('sharkText').innerText = username; // SHARK 텍스트를 ID로 변경
+        }
+    }
+
+    function showMessage() {
+        var inputText = document.getElementById('inputText').value;
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = inputText;
+    }
+</script>
+
+<!-- ... 이후 코드 ... -->
+<script>
+    function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // 여기에서 로그인을 확인하고 성공하면 페이지 전환
+        if (username && password) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('messagePage').style.display = 'flex';
+            document.getElementById('sharkText').innerText = username; // SHARK 텍스트를 ID로 변경
+        }
+    }
+
+    function showMessage() {
+        var inputText = document.getElementById('inputText').value;
+        var outputDiv = document.getElementById('output');
+        
+        // 현재 시간 구하기
+        var now = new Date();
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var currentTime = hours + ':' + minutes;
+
+        // 사용자 ID, 메시지, 현재 시간을 출력
+        outputDiv.innerHTML += '<p>' + document.getElementById('sharkText').innerText + ' : ' + inputText + ' (' + currentTime + ')</p>';
+        
+        // 입력 창 초기화
+        document.getElementById('inputText').value = '';
+        
+        // 스크롤 맨 아래로 이동
+        outputDiv.scrollTop = outputDiv.scrollHeight;
+    }
+</script>
+
+<!-- ... 이후 코드 ... -->
